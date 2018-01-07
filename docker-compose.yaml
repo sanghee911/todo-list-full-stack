@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+  db:
+    image: postgres
+    volumes:
+    - postgres-data:/var/lib/postgresql/data
+  web:
+    build:
+      context: ./todo-list-django
+    volumes:
+      - django-data:/src
+    depends_on:
+      - db
+
+  nginx:
+    build:
+      context: ./todo-list-nginx
+    ports:
+      - "8000:8000"
+    volumes:
+      - django-data:/src
+    depends_on:
+      - web
+
+  frontend:
+    build:
+      context: ./todo-list-frontend
+    ports:
+      - "8080:8080"
+    depends_on:
+      - nginx
+
+volumes:
+  django-data:
+  postgres-data:
