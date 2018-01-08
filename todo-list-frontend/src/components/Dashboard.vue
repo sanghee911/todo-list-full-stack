@@ -49,7 +49,7 @@
 
         <main role="main" class="col-sm-9 ml-sm-auto col-md-10 pt-3">
           <div id="todo">
-            <h1>Todo List - Cocktail Demo</h1>
+            <h1>Todo List - Cocktail Demo on host: {{ hostname }}</h1>
             <button class="btn btn-outline-info btn-sm pull-right"  v-on:click.prevent="formShow=true">Add a todo</button>
             <div id="form-modal" v-if="formShow">
               <form id="todo-form">
@@ -138,6 +138,7 @@
         formShow: false,
         search: "",
         apiUrl: $('#api-url').data('api-url'),
+        hostname: $('#hostname').data('hostname'),
       }
     },
     methods: {
@@ -153,6 +154,7 @@
         this.$http.get(this.apiUrl)
           .then(function (data) {
             console.log(data);
+            console.log(this.hostname)
             this.todoList = data.body.reverse();
           });
       },

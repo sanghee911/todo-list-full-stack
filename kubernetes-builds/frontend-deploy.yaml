@@ -1,0 +1,17 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: frontend
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+        - name: frontend
+          image: curtis911/todo-list-full-stack-frontend
+          env:
+            - name: TODO_BACKEND_URL
+              value: "http://192.168.39.121:30420//api/todo-list/"
