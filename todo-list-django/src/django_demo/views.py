@@ -1,5 +1,6 @@
 from django.views.generic import TemplateView
 import os
+import socket
 
 
 class IndexTemplateView(TemplateView):
@@ -12,4 +13,5 @@ class IndexTemplateView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(IndexTemplateView, self).get_context_data(**kwargs)
         context['frontend_ip'] = self.frontend_ip
+        context['hostname'] = socket.gethostname()
         return context
