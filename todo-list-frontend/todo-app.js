@@ -3,7 +3,7 @@ const os = require('os');
 
 const app = express();
 global.hostname = os.hostname();
-const port = 7777;
+const port = 8080;
 // const HOST = 'localhost';
 
 app.set('view engine', 'ejs');
