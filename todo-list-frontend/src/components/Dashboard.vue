@@ -49,7 +49,7 @@
 
         <main role="main" class="col-sm-9 ml-sm-auto col-md-10 pt-3">
           <div id="todo">
-            <h1>Todo List - Cocktail Demo on host: {{ hostname }}</h1>
+            <h1 id="dashboard-title">Todo List - Cocktail Demo on host: {{ hostname }}</h1>
             <button class="btn btn-outline-info btn-sm pull-right"  v-on:click.prevent="formShow=true">Add a todo</button>
             <div id="form-modal" v-if="formShow">
               <form id="todo-form">
@@ -250,5 +250,9 @@
   }
   textarea {
     min-height: 100px;
+  }
+  #dashboard-title {
+    font-size: 1.5em;
+    color: #007bff;
   }
 </style>
