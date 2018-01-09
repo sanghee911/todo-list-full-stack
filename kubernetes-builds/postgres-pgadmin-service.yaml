@@ -6,7 +6,12 @@ spec:
   selector:
     app: db
   ports:
-  - protocol: TCP
-    port: 8001
-    targetPort: 80
+    - name: postgres
+      protocol: TCP
+      port: 5432
+      targetPort: 5432
+    - name: pgadmin
+      protocol: TCP
+      port: 8001
+      targetPort: 80
   type: LoadBalancer

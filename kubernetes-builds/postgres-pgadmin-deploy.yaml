@@ -15,6 +15,8 @@ spec:
           volumeMounts:
             - mountPath: "/var/lib/postgresql/data"
               name: postgres-data-pv
+          ports:
+            - containerPort: 5432
         - name: pgadmin
           image: dpage/pgadmin4
           ports:

@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: web
 spec:
-  replicas: 2
+  replicas: 1
   template:
     metadata:
       labels:
@@ -22,8 +22,12 @@ spec:
           ports:
             - containerPort: 8000
           env:
+            - name: DATABASE_HOST
+              value: "db"
             - name: FRONTEND_IP
               value: "192.168.39.234:31758"
+            - name: PGADMIN_IP
+              value: "localhost:8001"
         - name: nginx
           image: curtis911/todo-list-full-stack-nginx
           volumeMounts:
