@@ -10,6 +10,8 @@ services:
       context: ./todo-list-django
     volumes:
       - django-data:/src
+    ports:
+      - "8000:8000"
     depends_on:
       - db
 
@@ -17,7 +19,7 @@ services:
     build:
       context: ./todo-list-nginx
     ports:
-      - "8000:8000"
+      - "8888:8888"
     volumes:
       - django-data:/src
     depends_on:

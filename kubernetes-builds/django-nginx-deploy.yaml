@@ -1,0 +1,30 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: web
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      volumes:
+        - name: django-data-pv
+          persistentVolumeClaim:
+           claimName: django-data-pv-claim
+      containers:
+        - name: django
+          image: curtis911/todo-list-full-stack-django
+          volumeMounts:
+            - mountPath: "/src"
+              name: django-data-pv
+          ports:
+            - containerPort: 8000
+        - name: nginx
+          image: curtis911/todo-list-full-stack-nginx
+          volumeMounts:
+            - mountPath: "/src"
+              name: django-data-pv
+          ports:
+            - containerPort: 8888
