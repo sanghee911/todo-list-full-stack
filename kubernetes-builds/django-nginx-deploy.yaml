@@ -25,9 +25,9 @@ spec:
             - name: DATABASE_HOST
               value: "db"
             - name: FRONTEND_IP
-              value: "192.168.39.234:31758"
+              value: "192.168.39.121:30889"
             - name: PGADMIN_IP
-              value: "localhost:8001"
+              value: "192.168.39.121:31566"
         - name: nginx
           image: curtis911/todo-list-full-stack-nginx
           volumeMounts:

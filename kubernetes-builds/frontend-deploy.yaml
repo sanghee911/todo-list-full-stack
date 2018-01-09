@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: frontend
 spec:
-  replicas: 3
+  replicas: 2
   template:
     metadata:
       labels:
@@ -14,4 +14,5 @@ spec:
           image: curtis911/todo-list-full-stack-frontend
           env:
             - name: TODO_BACKEND_URL
-              value: "http://192.168.39.234:30612/api/todo-list/"
+              # ex: http://192.168.39.121:32467/api/todo-list/
+              value: "http://192.168.39.121:32467/api/todo-list/"
