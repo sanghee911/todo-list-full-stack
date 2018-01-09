@@ -5,10 +5,10 @@ import socket
 
 class IndexTemplateView(TemplateView):
     template_name = "index.html"
-    try:
-        frontend_ip = os.environ['FRONTEND_IP']
-    except:
-        frontend_ip = 'localhost'
+
+    frontend_ip = os.environ.get('FRONTEND_IP', 'localhost:8080')
+    pgadmin_ip = os.environ.get('PGADMIN_IP', 'localhost:8001')
+
 
     def get_context_data(self, **kwargs):
         context = super(IndexTemplateView, self).get_context_data(**kwargs)

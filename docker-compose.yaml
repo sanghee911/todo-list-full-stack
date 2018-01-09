@@ -5,6 +5,13 @@ services:
     image: postgres
     volumes:
     - postgres-data:/var/lib/postgresql/data
+  pgadmin:
+    image: dpage/pgadmin4
+    ports:
+      - "8001:80"
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=sanghee911@hotmail.com
+      - PGADMIN_DEFAULT_PASSWORD=root123
   web:
     build:
       context: ./todo-list-django

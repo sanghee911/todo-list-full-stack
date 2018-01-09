@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: web
 spec:
-  replicas: 3
+  replicas: 2
   template:
     metadata:
       labels:
@@ -21,6 +21,9 @@ spec:
               name: django-data-pv
           ports:
             - containerPort: 8000
+          env:
+            - name: FRONTEND_IP
+              value: "192.168.39.234:31758"
         - name: nginx
           image: curtis911/todo-list-full-stack-nginx
           volumeMounts:
