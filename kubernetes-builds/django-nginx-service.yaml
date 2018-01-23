@@ -5,8 +5,10 @@ metadata:
 spec:
   selector:
     app: web
+  type: NodePort
+  # type: LoadBalancer
   ports:
   - protocol: TCP
+    nodePort: 32002
     port: 8888
     targetPort: 8888
-  type: LoadBalancer

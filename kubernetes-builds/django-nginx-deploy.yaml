@@ -15,7 +15,7 @@ spec:
            claimName: django-data-pv-claim
       containers:
         - name: django
-          image: curtis911/todo-list-full-stack-django
+          image: 192.168.189.136/todolistfullstack_web
           volumeMounts:
             - mountPath: "/src"
               name: django-data-pv
@@ -25,11 +25,11 @@ spec:
             - name: DATABASE_HOST
               value: "db"
             - name: FRONTEND_IP
-              value: "192.168.39.121:30889"
+              value: "minikube:32003"
             - name: PGADMIN_IP
-              value: "192.168.39.121:31566"
+              value: "minikube:32001"
         - name: nginx
-          image: curtis911/todo-list-full-stack-nginx
+          image: 192.168.189.136/todolistfullstack_nginx
           volumeMounts:
             - mountPath: "/src"
               name: django-data-pv
